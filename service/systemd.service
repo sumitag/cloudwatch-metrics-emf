@@ -1,0 +1,15 @@
+[Unit]
+Description=CloudWatch Metrics Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudwatch-metrics-emf
+Restart=always
+User=ec2-user
+Environment="AWS_REGION=us-east-1"
+Environment="AWS_ACCESS_KEY_ID=your-access-key"
+Environment="AWS_SECRET_ACCESS_KEY=your-secret-key"
+
+[Install]
+WantedBy=multi-user.target
